@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>md-pad</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f5e'/%3E%3Cpath d='M8 22V10l5 6 5-6v12M22 10v10m-3-3 3 3 3-3' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <aside id="sidebar">
+      <header class="side-head">
+        <a class="brand" href="/" data-link>md-pad</a>
+        <button id="new-note" class="primary" type="button">+ Nouvelle note</button>
+      </header>
+      <input id="search" type="search" placeholder="Rechercher…" aria-label="Rechercher dans les notes" autocomplete="off" />
+      <p id="list-status" class="muted" role="status"></p>
+      <ul id="note-list"></ul>
+      <p class="side-foot muted">Espace public : tout visiteur peut lire, modifier et supprimer ces notes.</p>
+    </aside>
+
+    <main id="main">
+      <section id="welcome">
+        <h1>md-pad</h1>
+        <p>Des notes Markdown, publiques, sans compte.</p>
+        <p class="muted">Choisissez une note dans la liste ou créez-en une.</p>
+        <button id="new-note-2" class="primary" type="button">+ Nouvelle note</button>
+      </section>
+
+      <section id="note" hidden>
+        <header class="toolbar">
+          <a class="back" href="/" data-link aria-label="Retour à la liste">←</a>
+          <h2 id="note-title">Sans titre</h2>
+          <span id="save-status" class="muted" role="status"></span>
+          <div class="modes" role="group" aria-label="Affichage">
+            <button type="button" data-mode="edit">Éditer</button>
+            <button type="button" data-mode="split">Les deux</button>
+            <button type="button" data-mode="view">Lire</button>
+          </div>
+          <div class="actions">
+            <button id="copy-link" type="button">Copier le lien</button>
+            <a id="raw-link" class="button" target="_blank" rel="noopener">Brut</a>
+            <a id="download-link" class="button">Télécharger .md</a>
+            <button id="delete-note" class="danger" type="button">Supprimer</button>
+          </div>
+        </header>
+        <div id="conflict" class="conflict" hidden>
+          <span id="conflict-text"></span>
+          <span id="conflict-actions"></span>
+        </div>
+        <div id="panes" class="panes" data-mode="split">
+          <textarea id="editor" spellcheck="true" placeholder="# Titre&#10;&#10;Écrivez en Markdown…" aria-label="Contenu Markdown"></textarea>
+          <article id="preview" class="markdown" aria-label="Aperçu"></article>
+        </div>
+      </section>
+
+      <section id="missing" hidden>
+        <h1>Note introuvable</h1>
+        <p class="muted">Elle a peut-être été supprimée.</p>
+        <a class="button" href="/" data-link>Retour à la liste</a>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

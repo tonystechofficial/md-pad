@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "md-pad",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "./public/",
+    "binding": "ASSETS",
+    // /n/<id> has no file: serve index.html, the page reads the id from the URL.
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "md-pad",
+      "database_id": "f1f851a1-6345-4eec-8fe8-5e7f03d013fb",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

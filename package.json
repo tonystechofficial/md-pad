@@ -1,0 +1,23 @@
+{
+  "name": "md-pad",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "dev": "npm run vendor && wrangler dev",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "migrate:local": "wrangler d1 migrations apply md-pad --local",
+    "migrate:remote": "wrangler d1 migrations apply md-pad --remote",
+    "deploy": "npm run vendor && wrangler deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261110.1",
+    "dompurify": "^3.4.17",
+    "marked": "^18.2.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "wrangler": "^4.160.0"
+  }
+}
