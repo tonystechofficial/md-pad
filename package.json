@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "vendor": "node scripts/vendor.mjs",
-    "dev": "npm run vendor && wrangler dev",
+    "vendor": "bun scripts/vendor.mjs",
+    "dev": "bun run vendor && wrangler dev",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "migrate:local": "wrangler d1 migrations apply md-pad --local",
     "migrate:remote": "wrangler d1 migrations apply md-pad --remote",
-    "deploy": "npm run vendor && wrangler deploy"
+    "deploy": "bun run vendor && wrangler deploy"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20261110.1",

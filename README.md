@@ -18,15 +18,15 @@ It is not real-time collaborative: the last save wins, after a prompt.
 
 - `src/notes.ts`: pure note logic (ids, title, input validation), tested in `test/`
 - `src/index.ts`: the Worker, JSON API under `/api/notes`
-- `public/`: the page (no build step; `marked` and `DOMPurify` are copied in by `npm run vendor`)
+- `public/`: the page (no build step; `marked` and `DOMPurify` are copied in by `bun run vendor`)
 - `migrations/`: D1 schema
 
 ## Run it
 
 ```bash
-npm install
-npm run migrate:local
-npm run dev
+bun install
+bun run migrate:local
+bun run dev
 ```
 
 ## Deploy on your own account
@@ -34,9 +34,9 @@ npm run dev
 Create the database, put its id in `wrangler.jsonc`, then migrate and deploy:
 
 ```bash
-npx wrangler d1 create md-pad
-npm run migrate:remote
-npm run deploy
+bunx wrangler d1 create md-pad
+bun run migrate:remote
+bun run deploy
 ```
 
 ## Limits to know
